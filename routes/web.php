@@ -16,3 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/trangchu', function () {
+    echo "xin chao cac ban";
+})
+;
+Route::get('/nhap/{ten}',function($ten){
+echo "Trang nay cua: ",$ten;
+});
+Route::get('nhapcodk/{tenb}', function($tenb){
+    echo "bien nhap vao bang",$tenb;
+})
+->where(['tenb'=>'[0-9]+']);
+Route::get('doan',['as'=>'Routedoan',function(){
+    echo "Hoang Ba Doan";
+}]);
+Route::get('goiten', function(){
+    return redirect()->route('Routethai');
+});
+Route::get('Goiten2',function(){
+    echo "Day la goi ten 2";
+}) -> name('Routethai');
