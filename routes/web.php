@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MyControll;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +36,24 @@ Route::get('goiten', function(){
 Route::get('Goiten2',function(){
     echo "Day la goi ten 2";
 }) -> name('Routethai');
+Route::group(['prefix'=>'group'],function(){
+    Route::get('User1',function(){
+        echo "User 1";
+    });
+    Route::get('User2',function(){
+        echo "User 2";
+    });
+    Route::get('User3',function(){
+        echo "User 3";
+    });
+});
+Route::get('MyControll',[MyControll::class,'xinchao']);
+
+Route::get('goiten/{ten}',[MyControll::class,'goiten']);
+
+Route::get('yeucau',[MyControll::class,'GetData']);
+
+Route::get('getForm',function(){
+    return view('postForm');
+});
+Route::post('postForm',[MyControll::Class,'postForm'])->name('postForm');
