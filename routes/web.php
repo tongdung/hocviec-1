@@ -57,3 +57,18 @@ Route::get('getForm',function(){
     return view('postForm');
 });
 Route::post('postForm',[MyControll::Class,'postForm'])->name('postForm');
+// get cookie
+Route::get('getCookie',[MyControll::Class,'getCookie']);
+
+//set Cookie
+Route::get('setCookie',[MyControll::Class,'setCookie']);
+
+Route::get('upFile',function(){
+    return view('upFile');
+});
+ Route::post('postFile',[MyControll::class,'postFile'])->name('postFile');
+Route::get('setJS',[MyControll::class,'getJS']);
+Route::get('index',[MyControll::class,'getview']);
+
+Route::get('tryen/{ten}',[MyControll::class,'truyen']);
+View::share('layout','da toi day roi');
